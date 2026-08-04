@@ -20,6 +20,9 @@ import { Route as TermsRouteImport } from './routes/terms'
 import { Route as AuthenticatedAppRouteImport } from './routes/_authenticated/app'
 import { Route as AuthenticatedAppIndexRouteImport } from './routes/_authenticated/app.index'
 import { Route as AuthenticatedAppOnboardingRouteImport } from './routes/_authenticated/app.onboarding'
+import { Route as AuthenticatedAppRecordsIndexRouteImport } from './routes/_authenticated/app.records.index'
+import { Route as AuthenticatedAppRecordsIdRouteImport } from './routes/_authenticated/app.records.$id'
+import { Route as AuthenticatedAppRecordsNewRouteImport } from './routes/_authenticated/app.records.new'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -76,6 +79,24 @@ const AuthenticatedAppOnboardingRoute =
     path: '/onboarding',
     getParentRoute: () => AuthenticatedAppRoute,
   } as any)
+const AuthenticatedAppRecordsIndexRoute =
+  AuthenticatedAppRecordsIndexRouteImport.update({
+    id: '/records/',
+    path: '/records/',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
+const AuthenticatedAppRecordsIdRoute =
+  AuthenticatedAppRecordsIdRouteImport.update({
+    id: '/records/$id',
+    path: '/records/$id',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
+const AuthenticatedAppRecordsNewRoute =
+  AuthenticatedAppRecordsNewRouteImport.update({
+    id: '/records/new',
+    path: '/records/new',
+    getParentRoute: () => AuthenticatedAppRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -88,6 +109,9 @@ export interface FileRoutesByFullPath {
   '/app': typeof AuthenticatedAppRouteWithChildren
   '/app/onboarding': typeof AuthenticatedAppOnboardingRoute
   '/app/': typeof AuthenticatedAppIndexRoute
+  '/app/records/$id': typeof AuthenticatedAppRecordsIdRoute
+  '/app/records/new': typeof AuthenticatedAppRecordsNewRoute
+  '/app/records/': typeof AuthenticatedAppRecordsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -99,6 +123,9 @@ export interface FileRoutesByTo {
   '/terms': typeof TermsRoute
   '/app/onboarding': typeof AuthenticatedAppOnboardingRoute
   '/app': typeof AuthenticatedAppIndexRoute
+  '/app/records/$id': typeof AuthenticatedAppRecordsIdRoute
+  '/app/records/new': typeof AuthenticatedAppRecordsNewRoute
+  '/app/records': typeof AuthenticatedAppRecordsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -113,6 +140,9 @@ export interface FileRoutesById {
   '/_authenticated/app': typeof AuthenticatedAppRouteWithChildren
   '/_authenticated/app/onboarding': typeof AuthenticatedAppOnboardingRoute
   '/_authenticated/app/': typeof AuthenticatedAppIndexRoute
+  '/_authenticated/app/records/$id': typeof AuthenticatedAppRecordsIdRoute
+  '/_authenticated/app/records/new': typeof AuthenticatedAppRecordsNewRoute
+  '/_authenticated/app/records/': typeof AuthenticatedAppRecordsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -127,6 +157,9 @@ export interface FileRouteTypes {
     | '/app'
     | '/app/onboarding'
     | '/app/'
+    | '/app/records/$id'
+    | '/app/records/new'
+    | '/app/records/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -138,6 +171,9 @@ export interface FileRouteTypes {
     | '/terms'
     | '/app/onboarding'
     | '/app'
+    | '/app/records/$id'
+    | '/app/records/new'
+    | '/app/records'
   id:
     | '__root__'
     | '/'
@@ -151,6 +187,9 @@ export interface FileRouteTypes {
     | '/_authenticated/app'
     | '/_authenticated/app/onboarding'
     | '/_authenticated/app/'
+    | '/_authenticated/app/records/$id'
+    | '/_authenticated/app/records/new'
+    | '/_authenticated/app/records/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -243,17 +282,44 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAppOnboardingRouteImport
       parentRoute: typeof AuthenticatedAppRoute
     }
+    '/_authenticated/app/records/': {
+      id: '/_authenticated/app/records/'
+      path: '/records'
+      fullPath: '/app/records/'
+      preLoaderRoute: typeof AuthenticatedAppRecordsIndexRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
+    '/_authenticated/app/records/$id': {
+      id: '/_authenticated/app/records/$id'
+      path: '/records/$id'
+      fullPath: '/app/records/$id'
+      preLoaderRoute: typeof AuthenticatedAppRecordsIdRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
+    '/_authenticated/app/records/new': {
+      id: '/_authenticated/app/records/new'
+      path: '/records/new'
+      fullPath: '/app/records/new'
+      preLoaderRoute: typeof AuthenticatedAppRecordsNewRouteImport
+      parentRoute: typeof AuthenticatedAppRoute
+    }
   }
 }
 
 interface AuthenticatedAppRouteChildren {
   AuthenticatedAppOnboardingRoute: typeof AuthenticatedAppOnboardingRoute
   AuthenticatedAppIndexRoute: typeof AuthenticatedAppIndexRoute
+  AuthenticatedAppRecordsIdRoute: typeof AuthenticatedAppRecordsIdRoute
+  AuthenticatedAppRecordsNewRoute: typeof AuthenticatedAppRecordsNewRoute
+  AuthenticatedAppRecordsIndexRoute: typeof AuthenticatedAppRecordsIndexRoute
 }
 
 const AuthenticatedAppRouteChildren: AuthenticatedAppRouteChildren = {
   AuthenticatedAppOnboardingRoute: AuthenticatedAppOnboardingRoute,
   AuthenticatedAppIndexRoute: AuthenticatedAppIndexRoute,
+  AuthenticatedAppRecordsIdRoute: AuthenticatedAppRecordsIdRoute,
+  AuthenticatedAppRecordsNewRoute: AuthenticatedAppRecordsNewRoute,
+  AuthenticatedAppRecordsIndexRoute: AuthenticatedAppRecordsIndexRoute,
 }
 
 const AuthenticatedAppRouteWithChildren =
