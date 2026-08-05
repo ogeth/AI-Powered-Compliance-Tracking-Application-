@@ -107,7 +107,7 @@ function Generator() {
         approvers: form.approvers,
         notes: form.notes,
         answers,
-        selectedRecordType: (override || undefined) as RecordType | undefined,
+        ...(override ? { selectedRecordType: override as RecordType } : {}),
       });
       setOutput(result);
       track("draft_generated", { record_type: result.recordType });
