@@ -2,7 +2,7 @@
  * Central product constants. Replace PRODUCT_NAME in one place when the real
  * brand name is chosen.
  */
-export const PRODUCT_NAME = "[PRODUCT NAME]";
+export const PRODUCT_NAME = "MinuteMate";
 
 export const DISCLAIMER_SHORT =
   "This draft was generated from the information you provided. Review it for accuracy and confirm that it is consistent with your operating agreement and professional advice.";
