@@ -174,10 +174,8 @@ export function AuthShell({
   return (
     <div className="flex min-h-screen flex-col bg-surface">
       <header className="container-page flex h-20 items-center">
-        <Link to="/" className="flex items-center gap-2 font-semibold">
-          <span className="flex size-8 items-center justify-center rounded-lg bg-navy text-navy-foreground">
-            <ShieldCheck className="size-4" aria-hidden="true" />
-          </span>
+        <Link to="/" className="flex items-center gap-2.5 text-xl font-bold tracking-tight">
+          <ShieldCheck className="size-6 text-primary" aria-hidden="true" />
           {PRODUCT_NAME}
         </Link>
       </header>

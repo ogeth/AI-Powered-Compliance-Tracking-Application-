@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Menu, ShieldCheck } from "lucide-react";
+import { FileText, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { PRODUCT_NAME, track } from "@/lib/product";
@@ -38,11 +38,9 @@ export function SiteHeader() {
           scrolled ? "h-14" : "h-20",
         )}
       >
-        <Link to="/" className="flex items-center gap-2 font-semibold tracking-tight">
-          <span className="flex size-8 items-center justify-center rounded-lg bg-navy text-navy-foreground">
-            <ShieldCheck className="size-4" aria-hidden="true" />
-          </span>
-          <span className="text-lg">{PRODUCT_NAME}</span>
+        <Link to="/" className="flex items-center gap-2.5 font-bold tracking-tight">
+          <FileText className="size-6 text-primary" aria-hidden="true" />
+          <span className="text-xl">{PRODUCT_NAME}</span>
         </Link>
 
         <nav aria-label="Main" className="hidden items-center gap-7 lg:flex">
