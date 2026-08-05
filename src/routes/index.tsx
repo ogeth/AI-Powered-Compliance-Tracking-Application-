@@ -355,20 +355,23 @@ function HomePage() {
 
       <main>
         {/* Hero */}
-        <section className="relative overflow-hidden border-b border-border bg-surface/60">
-          <div className="container-page grid gap-14 py-16 lg:grid-cols-[1.05fr_1fr] lg:items-center lg:py-24">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.14em] text-primary">
-                Colorado-first business records and compliance
+        <section className="relative overflow-hidden border-b border-border bg-background">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-x-0 -top-40 h-80 bg-accent/50 blur-3xl"
+          />
+          <div className="container-page relative py-20 lg:py-28">
+            <div className="mx-auto max-w-3xl text-center">
+              <p className="text-sm font-semibold uppercase tracking-[0.16em] text-primary">
+                Colorado-first business records
               </p>
-              <h1 className="mt-4 text-4xl font-semibold text-foreground sm:text-5xl lg:text-[3.4rem]">
-                Document important business decisions without learning legal drafting.
+              <h1 className="mt-5 text-4xl sm:text-5xl lg:text-6xl">
+                Generate compliant LLC meeting minutes in 60 seconds
               </h1>
-              <p className="mt-5 max-w-xl text-lg text-muted-foreground">
-                Describe what happened in ordinary language. {PRODUCT_NAME} recommends an appropriate
-                company record, organizes the details and creates a structured draft for your review.
+              <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
+                Colorado freelancers &amp; small businesses — stay audit-ready without the legalese.
               </p>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
                 <PrimaryCta location="hero" />
                 <Button
                   asChild
@@ -379,28 +382,30 @@ function HomePage() {
                   <a href="#how-it-works">See how it works</a>
                 </Button>
               </div>
-              <p className="mt-3 text-sm text-muted-foreground">
+              <p className="mt-4 text-sm text-muted-foreground">
                 Start free. No credit card required.
               </p>
 
-              <ul className="mt-9 grid gap-3 sm:grid-cols-2">
+              <ul className="mx-auto mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
                 {[
                   "Built for owner-operated businesses",
                   "Structured, reviewable drafts",
-                  "Secure business-record storage",
-                  "Clear limitations and assumptions",
+                  "Secure record storage",
                 ].map((item) => (
-                  <li key={item} className="flex items-start gap-2 text-sm text-foreground">
-                    <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
+                  <li key={item} className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <CheckCircle2 className="size-4 shrink-0 text-primary" aria-hidden="true" />
                     {item}
                   </li>
                 ))}
               </ul>
             </div>
 
-            <HeroPreview />
+            <div className="mx-auto mt-16 max-w-2xl">
+              <HeroPreview />
+            </div>
           </div>
         </section>
+
 
         {/* Trust strip */}
         <section className="border-b border-border bg-background">
