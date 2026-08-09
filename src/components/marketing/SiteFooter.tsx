@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import Link from "next/link";
 import { PRODUCT_NAME } from "@/lib/product";
 
 const COLUMNS: { title: string; links: { label: string; to?: string; href?: string }[] }[] = [
@@ -56,7 +56,7 @@ export function SiteFooter() {
                   <li key={link.label}>
                     {link.to ? (
                       <Link
-                        to={link.to}
+                        href={link.to}
                         className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                       >
                         {link.label}

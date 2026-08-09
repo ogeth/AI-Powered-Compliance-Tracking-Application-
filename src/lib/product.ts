@@ -40,5 +40,5 @@ export function track(event: AnalyticsEvent, meta?: Record<string, string | numb
   const w = window as unknown as { __analytics?: unknown[] };
   w.__analytics = w.__analytics ?? [];
   w.__analytics.push(payload);
-  if (import.meta.env.DEV) console.debug("[analytics]", payload);
+  if (process.env.NODE_ENV !== "production") console.debug("[analytics]", payload);
 }

@@ -1,5 +1,8 @@
-import { Link, Outlet, useNavigate, useRouterState } from "@tanstack/react-router";
-import { useState } from "react";
+"use client";
+
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
+import { useState, type ReactNode } from "react";
 import {
   Building2,
   CalendarClock,
@@ -44,7 +47,7 @@ const NAV: { to: string; label: string; icon: typeof FileText; badge?: string }[
 ];
 
 function NavList({ onNavigate }: { onNavigate?: () => void }) {
-  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const pathname = usePathname();
   return (
     <nav aria-label="Workspace" className="flex flex-col gap-1 p-3">
       {NAV.map((item) => {
@@ -52,7 +55,7 @@ function NavList({ onNavigate }: { onNavigate?: () => void }) {
         return (
           <Link
             key={item.to}
-            to={item.to}
+            href={item.to}
             onClick={onNavigate}
             className={cn(
               "flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors",
@@ -75,22 +78,22 @@ function NavList({ onNavigate }: { onNavigate?: () => void }) {
   );
 }
 
-export function AppShell() {
+export function AppShell({ children }: { children: ReactNode }) {
   const { firstName, lastName, user } = useAuth();
-  const navigate = useNavigate();
+  const router = useRouter();
   const [open, setOpen] = useState(false);
   const initials = `${firstName?.[0] ?? "U"}${lastName?.[0] ?? ""}`.toUpperCase();
 
   async function signOut() {
     await supabase.auth.signOut();
-    navigate({ to: "/login" });
+    router.push("/login");
   }
 
   return (
     <div className="min-h-screen bg-surface">
       <div className="flex">
         <aside className="sticky top-0 hidden h-screen w-64 shrink-0 border-r border-sidebar-border bg-sidebar lg:block">
-          <Link to="/app" className="flex h-16 items-center gap-2 px-5 font-semibold">
+          <Link href="/app" className="flex h-16 items-center gap-2 px-5 font-semibold">
             {PRODUCT_NAME}
           </Link>
           <NavList />
@@ -110,7 +113,12 @@ export function AppShell() {
               </SheetContent>
             </Sheet>
 
-            <Button variant="ghost" size="sm" className="hidden gap-2 sm:flex" aria-label="Business switcher">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="hidden gap-2 sm:flex"
+              aria-label="Business switcher"
+            >
               <Building2 className="size-4" />
               My business
               <ChevronDown className="size-3.5" />
@@ -126,7 +134,7 @@ export function AppShell() {
                 placeholder="Search records"
                 aria-label="Global search"
                 onKeyDown={(e) => {
-                  if (e.key === "Enter") navigate({ to: "/app/records" });
+                  if (e.key === "Enter") router.push("/app/records");
                 }}
               />
             </div>
@@ -135,7 +143,7 @@ export function AppShell() {
               <Bell className="size-4" />
             </Button>
             <Button variant="ghost" size="icon" aria-label="Help" asChild>
-              <Link to="/disclaimer">
+              <Link href="/disclaimer">
                 <HelpCircle className="size-4" />
               </Link>
             </Button>
@@ -152,10 +160,10 @@ export function AppShell() {
                 <div className="px-2 py-1.5 text-xs text-muted-foreground">{user?.email}</div>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem asChild>
-                  <Link to="/app/settings">Profile</Link>
+                  <Link href="/app/settings">Profile</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link to="/app/settings">Settings</Link>
+                  <Link href="/app/settings">Settings</Link>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem onClick={signOut}>
@@ -165,9 +173,7 @@ export function AppShell() {
             </DropdownMenu>
           </header>
 
-          <main className="min-w-0 flex-1 p-4 sm:p-6 lg:p-8">
-            <Outlet />
-          </main>
+          <main className="min-w-0 flex-1 p-4 sm:p-6 lg:p-8">{children}</main>
         </div>
       </div>
     </div>

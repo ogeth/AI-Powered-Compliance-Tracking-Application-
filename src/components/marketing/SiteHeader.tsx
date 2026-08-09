@@ -1,5 +1,7 @@
+"use client";
+
 import { useEffect, useState } from "react";
-import { Link } from "@tanstack/react-router";
+import Link from "next/link";
 import { FileText, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
@@ -38,7 +40,7 @@ export function SiteHeader() {
           scrolled ? "h-14" : "h-20",
         )}
       >
-        <Link to="/" className="flex items-center gap-2.5 font-bold tracking-tight">
+        <Link href="/" className="flex items-center gap-2.5 font-bold tracking-tight">
           <FileText className="size-6 text-primary" aria-hidden="true" />
           <span className="text-xl">{PRODUCT_NAME}</span>
         </Link>
@@ -57,12 +59,14 @@ export function SiteHeader() {
 
         <div className="hidden items-center gap-3 lg:flex">
           <Button asChild variant="ghost" size="sm">
-            <Link to="/login">Log in</Link>
+            <Link href="/login">Log in</Link>
           </Button>
-          <Button asChild size="sm" onClick={() => track("homepage_primary_cta_clicked", { location: "header" })}>
-            <Link to="/signup" search={{ intent: "record" }}>
-              Create your first record
-            </Link>
+          <Button
+            asChild
+            size="sm"
+            onClick={() => track("homepage_primary_cta_clicked", { location: "header" })}
+          >
+            <Link href="/signup?intent=record">Create your first record</Link>
           </Button>
         </div>
 
@@ -88,12 +92,10 @@ export function SiteHeader() {
             </nav>
             <div className="mt-6 flex flex-col gap-3 px-4">
               <Button asChild variant="outline">
-                <Link to="/login">Log in</Link>
+                <Link href="/login">Log in</Link>
               </Button>
               <Button asChild>
-                <Link to="/signup" search={{ intent: "record" }}>
-                  Create your first business record
-                </Link>
+                <Link href="/signup?intent=record">Create your first business record</Link>
               </Button>
             </div>
           </SheetContent>
