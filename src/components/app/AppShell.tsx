@@ -56,7 +56,7 @@ function NavList({ onNavigate }: { onNavigate?: () => void }) {
           <Link
             key={item.to}
             href={item.to}
-            onClick={onNavigate}
+            {...(onNavigate ? { onClick: onNavigate } : {})}
             className={cn(
               "flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors",
               active
