@@ -150,7 +150,10 @@ export default function Onboarding() {
             <>
               <div className="space-y-2">
                 <Label htmlFor="ownership">Ownership</Label>
-                <Select value={values.ownership_type} onValueChange={(v) => set("ownership_type", v)}>
+                <Select
+                  value={values.ownership_type}
+                  onValueChange={(v) => set("ownership_type", v)}
+                >
                   <SelectTrigger id="ownership">
                     <SelectValue />
                   </SelectTrigger>

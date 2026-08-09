@@ -135,7 +135,9 @@ function HeroPreview() {
                 <dd>August 4, 2026</dd>
               </div>
               <div>
-                <dt className="text-xs uppercase tracking-wide text-muted-foreground">Background</dt>
+                <dt className="text-xs uppercase tracking-wide text-muted-foreground">
+                  Background
+                </dt>
                 <dd className="text-muted-foreground">
                   The company determined that a dedicated business bank account was needed to
                   separate company funds.
@@ -146,13 +148,17 @@ function HeroPreview() {
                   Authorization
                 </dt>
                 <dd className="text-muted-foreground">
-                  The sole member is authorized to open the account and manage deposits, payments and
-                  online banking.
+                  The sole member is authorized to open the account and manage deposits, payments
+                  and online banking.
                 </dd>
               </div>
               <div>
-                <dt className="text-xs uppercase tracking-wide text-muted-foreground">Sole member</dt>
-                <dd className="text-muted-foreground">Name: ____________ Signature: ____________</dd>
+                <dt className="text-xs uppercase tracking-wide text-muted-foreground">
+                  Sole member
+                </dt>
+                <dd className="text-muted-foreground">
+                  Name: ____________ Signature: ____________
+                </dd>
               </div>
             </dl>
           </div>
@@ -447,8 +453,8 @@ export function HomePage() {
                 <CardContent>
                   <div className="rounded-xl border border-dashed border-border bg-background p-5 text-sm leading-relaxed text-foreground">
                     This month I opened a new business bank account for Northstar Design LLC. I
-                    approved the account and authorized myself to manage deposits, payments and online
-                    banking.
+                    approved the account and authorized myself to manage deposits, payments and
+                    online banking.
                   </div>
                 </CardContent>
               </Card>
@@ -464,7 +470,10 @@ export function HomePage() {
                   <p className="text-sm font-medium text-primary">Sole-Member Written Consent</p>
                   <dl className="document-surface space-y-3 rounded-xl border border-border p-5 text-sm">
                     {[
-                      ["Company name", "Northstar Design LLC, a Colorado limited liability company"],
+                      [
+                        "Company name",
+                        "Northstar Design LLC, a Colorado limited liability company",
+                      ],
                       ["Decision date", "August 4, 2026"],
                       [
                         "Background",
@@ -479,7 +488,10 @@ export function HomePage() {
                         "The sole member may manage deposits, payments and online banking for the account.",
                       ],
                       ["Effective date", "August 4, 2026"],
-                      ["Signature block", "Name: ____________  Signature: ____________  Date: ______"],
+                      [
+                        "Signature block",
+                        "Name: ____________  Signature: ____________  Date: ______",
+                      ],
                     ].map(([term, value]) => (
                       <div key={term}>
                         <dt className="text-xs uppercase tracking-wide text-muted-foreground">
@@ -508,7 +520,10 @@ export function HomePage() {
         {/* How it works */}
         <section className="py-20">
           <div className="container-page">
-            <SectionHeading id="how-it-works" title="Create a clear business record in three steps." />
+            <SectionHeading
+              id="how-it-works"
+              title="Create a clear business record in three steps."
+            />
             <ol className="relative mt-14 grid gap-8 md:grid-cols-3">
               <div
                 aria-hidden="true"

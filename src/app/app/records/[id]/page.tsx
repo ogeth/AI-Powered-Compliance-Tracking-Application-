@@ -40,7 +40,9 @@ export default function RecordEditor() {
   if (error || !data)
     return (
       <div className="space-y-4">
-        <p className="text-sm text-destructive">That record could not be found in your workspace.</p>
+        <p className="text-sm text-destructive">
+          That record could not be found in your workspace.
+        </p>
         <Button asChild variant="outline">
           <Link href="/app/records">Back to records</Link>
         </Button>
@@ -69,7 +71,10 @@ export default function RecordEditor() {
     try {
       await uploadDocument(file, { category: "signed_record", record_id: id });
       track("signed_copy_uploaded");
-      await persist({ status: "completed", completed_at: new Date().toISOString() }, "Signed copy uploaded");
+      await persist(
+        { status: "completed", completed_at: new Date().toISOString() },
+        "Signed copy uploaded",
+      );
     } catch (e) {
       toast.error(e instanceof Error ? e.message : "The file could not be uploaded.");
     } finally {
@@ -93,7 +98,10 @@ export default function RecordEditor() {
           </p>
         </div>
         {!completed ? (
-          <Badge variant="outline" className="border-attention/50 bg-attention-soft text-attention-foreground">
+          <Badge
+            variant="outline"
+            className="border-attention/50 bg-attention-soft text-attention-foreground"
+          >
             Draft for review
           </Badge>
         ) : (
@@ -143,7 +151,9 @@ export default function RecordEditor() {
             </CardHeader>
             <CardContent className="space-y-4 text-sm">
               <div>
-                <p className="text-xs uppercase tracking-wide text-muted-foreground">Document status</p>
+                <p className="text-xs uppercase tracking-wide text-muted-foreground">
+                  Document status
+                </p>
                 <p>{statusLabel(data.status)}</p>
               </div>
               {(
@@ -168,7 +178,9 @@ export default function RecordEditor() {
                 </div>
               ))}
               <div>
-                <p className="text-xs uppercase tracking-wide text-muted-foreground">Template version</p>
+                <p className="text-xs uppercase tracking-wide text-muted-foreground">
+                  Template version
+                </p>
                 <p className="text-muted-foreground">{data.template_version}</p>
               </div>
               {data.professional_review_recommended ? (
@@ -211,9 +223,17 @@ export default function RecordEditor() {
               </Button>
               <Button variant="outline" asChild>
                 <label className="cursor-pointer">
-                  {uploading ? <Loader2 className="size-4 animate-spin" /> : <Upload className="size-4" />}
+                  {uploading ? (
+                    <Loader2 className="size-4 animate-spin" />
+                  ) : (
+                    <Upload className="size-4" />
+                  )}
                   Upload signed copy
-                  <input type="file" className="sr-only" onChange={(e) => onUpload(e.target.files?.[0])} />
+                  <input
+                    type="file"
+                    className="sr-only"
+                    onChange={(e) => onUpload(e.target.files?.[0])}
+                  />
                 </label>
               </Button>
               <Button variant="ghost" asChild>

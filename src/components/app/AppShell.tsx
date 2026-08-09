@@ -139,7 +139,12 @@ export function AppShell({ children }: { children: ReactNode }) {
               />
             </div>
 
-            <Button variant="ghost" size="icon" aria-label="Notifications" className="ml-auto md:ml-0">
+            <Button
+              variant="ghost"
+              size="icon"
+              aria-label="Notifications"
+              className="ml-auto md:ml-0"
+            >
               <Bell className="size-4" />
             </Button>
             <Button variant="ghost" size="icon" aria-label="Help" asChild>

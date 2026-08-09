@@ -43,8 +43,8 @@ export function ForgotPasswordForm() {
         <div className="space-y-5">
           <Alert>
             <AlertDescription>
-              If an account exists for {email}, a reset link is on its way. Check your inbox and spam
-              folder.
+              If an account exists for {email}, a reset link is on its way. Check your inbox and
+              spam folder.
             </AlertDescription>
           </Alert>
           <Button asChild variant="outline" className="w-full">

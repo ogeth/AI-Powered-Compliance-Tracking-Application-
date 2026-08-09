@@ -159,7 +159,12 @@ export async function createRecord(values: Partial<BusinessRecordRow>): Promise<
   const user_id = await requireUserId();
   const { data, error } = await db
     .from("business_records")
-    .insert({ ...values, user_id, title: values.title ?? "Untitled record", record_type: values.record_type ?? "business_decision_record" })
+    .insert({
+      ...values,
+      user_id,
+      title: values.title ?? "Untitled record",
+      record_type: values.record_type ?? "business_decision_record",
+    })
     .select()
     .single();
   if (error) throw error;
@@ -173,7 +178,12 @@ export async function updateRecord(
   values: Partial<BusinessRecordRow>,
   activity?: string,
 ): Promise<BusinessRecordRow> {
-  const { data, error } = await db.from("business_records").update(values).eq("id", id).select().single();
+  const { data, error } = await db
+    .from("business_records")
+    .update(values)
+    .eq("id", id)
+    .select()
+    .single();
   if (error) throw error;
   if (activity) await logActivity("record_updated", activity, { record_id: id });
   return data as BusinessRecordRow;
@@ -226,9 +236,11 @@ export async function uploadDocument(
   const user_id = await requireUserId();
   if (file.size > MAX_FILE_BYTES) throw new Error("That file is larger than the 15 MB limit.");
   if (file.type && !ALLOWED_TYPES.includes(file.type))
-    throw new Error("That file type is not supported. Upload a PDF, image, Word file or text file.");
+    throw new Error(
+      "That file type is not supported. Upload a PDF, image, Word file or text file.",
+    );
 
-  const safeName = file.name.replace(/[^\w.\-]+/g, "_");
+  const safeName = file.name.replace(/[^\w.-]+/g, "_");
   const path = `${user_id}/${crypto.randomUUID()}-${safeName}`;
   const { error: uploadError } = await supabase.storage
     .from("business-documents")
@@ -310,7 +322,12 @@ export async function fetchProfile() {
   const user_id = await requireUserId();
   const { data, error } = await db.from("profiles").select("*").eq("id", user_id).maybeSingle();
   if (error) throw error;
-  return data as { id: string; first_name: string | null; last_name: string | null; email: string | null } | null;
+  return data as {
+    id: string;
+    first_name: string | null;
+    last_name: string | null;
+    email: string | null;
+  } | null;
 }
 
 export async function updateProfile(values: { first_name?: string; last_name?: string }) {

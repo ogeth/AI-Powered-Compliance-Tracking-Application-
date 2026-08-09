@@ -37,6 +37,8 @@ export async function generateDraft(input: GenerationInput): Promise<GenerationO
     return await generationService.generate(input);
   } catch (error) {
     console.error("[generation]", error);
-    throw new Error("We could not generate the draft. Your answers have been preserved. Please try again.");
+    throw new Error(
+      "We could not generate the draft. Your answers have been preserved. Please try again.",
+    );
   }
 }

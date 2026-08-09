@@ -52,7 +52,8 @@ export function Dashboard() {
 
       <div className="rounded-xl border border-border bg-attention-soft p-4 text-sm text-attention-foreground">
         Your current workspace includes business-profile management and business-record generation.
-        Personalized compliance requirements and deadline monitoring will be introduced progressively.
+        Personalized compliance requirements and deadline monitoring will be introduced
+        progressively.
       </div>
 
       <div className="grid gap-6 lg:grid-cols-3">
@@ -72,7 +73,9 @@ export function Dashboard() {
                   ["Completed", counts.completed],
                 ].map(([label, value]) => (
                   <div key={label as string} className="rounded-lg border border-border p-4">
-                    <dt className="text-xs uppercase tracking-wide text-muted-foreground">{label}</dt>
+                    <dt className="text-xs uppercase tracking-wide text-muted-foreground">
+                      {label}
+                    </dt>
                     <dd className="mt-1 text-2xl font-semibold">{value}</dd>
                   </div>
                 ))}
@@ -123,7 +126,9 @@ export function Dashboard() {
                 <p>State: {business.data.state_of_formation}</p>
                 <p>
                   Ownership:{" "}
-                  {business.data.ownership_type === "single_member" ? "Single-member" : "Multi-member"}
+                  {business.data.ownership_type === "single_member"
+                    ? "Single-member"
+                    : "Multi-member"}
                 </p>
                 <p>
                   Management:{" "}

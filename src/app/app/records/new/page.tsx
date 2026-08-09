@@ -244,7 +244,9 @@ export default function Generator() {
               <Label htmlFor="meeting">Did an actual meeting take place?</Label>
               <Select
                 value={form.meetingOccurred}
-                onValueChange={(v) => setForm({ ...form, meetingOccurred: v as typeof form.meetingOccurred })}
+                onValueChange={(v) =>
+                  setForm({ ...form, meetingOccurred: v as typeof form.meetingOccurred })
+                }
               >
                 <SelectTrigger id="meeting">
                   <SelectValue />
@@ -318,7 +320,9 @@ export default function Generator() {
               <div>
                 <dt className="text-muted-foreground">Ownership</dt>
                 <dd>
-                  {business.data.ownership_type === "single_member" ? "Single-member" : "Multi-member"}
+                  {business.data.ownership_type === "single_member"
+                    ? "Single-member"
+                    : "Multi-member"}
                 </dd>
               </div>
               <div>
@@ -377,7 +381,10 @@ export default function Generator() {
             <fieldset className="space-y-3">
               <legend className="text-sm font-medium">Does any of this apply?</legend>
               {RISK_QUESTIONS.map((q) => (
-                <label key={q.key} className="flex items-center gap-3 text-sm text-muted-foreground">
+                <label
+                  key={q.key}
+                  className="flex items-center gap-3 text-sm text-muted-foreground"
+                >
                   <Checkbox
                     checked={answers[q.key] === true}
                     onCheckedChange={(v) => setAnswers({ ...answers, [q.key]: v === true })}
@@ -438,7 +445,10 @@ export default function Generator() {
               <CardTitle>{output.title}</CardTitle>
               <p className="mt-1 text-sm text-muted-foreground">{DISCLAIMER_SHORT}</p>
             </div>
-            <Badge variant="outline" className="border-attention/50 bg-attention-soft text-attention-foreground">
+            <Badge
+              variant="outline"
+              className="border-attention/50 bg-attention-soft text-attention-foreground"
+            >
               Draft for review
             </Badge>
           </CardHeader>
@@ -447,7 +457,10 @@ export default function Generator() {
               <div className="space-y-4">
                 {output.sections.map((section, index) => (
                   <div key={section.id} className="space-y-1">
-                    <Label htmlFor={`sec-${section.id}`} className="text-xs uppercase tracking-wide">
+                    <Label
+                      htmlFor={`sec-${section.id}`}
+                      className="text-xs uppercase tracking-wide"
+                    >
                       {section.heading}
                     </Label>
                     <Textarea
@@ -509,7 +522,11 @@ export default function Generator() {
               </div>
               <div>
                 <dt className="text-muted-foreground">Status</dt>
-                <dd>{output.professionalReviewRecommended ? "Professional review recommended" : "Draft"}</dd>
+                <dd>
+                  {output.professionalReviewRecommended
+                    ? "Professional review recommended"
+                    : "Draft"}
+                </dd>
               </div>
               <div>
                 <dt className="text-muted-foreground">Related event</dt>
@@ -590,7 +607,9 @@ function RecommendationStep({
   onGenerate,
   generating,
 }: {
-  business: NonNullable<ReturnType<typeof useQuery<Awaited<ReturnType<typeof fetchBusinessProfile>>>>["data"]>;
+  business: NonNullable<
+    ReturnType<typeof useQuery<Awaited<ReturnType<typeof fetchBusinessProfile>>>>["data"]
+  >;
   form: {
     description: string;
     eventDate: string;
@@ -638,7 +657,9 @@ function RecommendationStep({
       </CardHeader>
       <CardContent className="space-y-5">
         <div className="rounded-lg border border-primary/30 bg-success-soft p-4">
-          <p className="text-base font-semibold text-primary">{recordTypeLabel(preview.recordType)}</p>
+          <p className="text-base font-semibold text-primary">
+            {recordTypeLabel(preview.recordType)}
+          </p>
           <p className="mt-2 text-sm text-foreground">{preview.reason}</p>
         </div>
 

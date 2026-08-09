@@ -117,7 +117,10 @@ export function LoginForm() {
             <Checkbox checked={remember} onCheckedChange={(v) => setRemember(v === true)} />
             Remember me
           </label>
-          <Link href="/forgot-password" className="text-sm font-medium text-primary hover:underline">
+          <Link
+            href="/forgot-password"
+            className="text-sm font-medium text-primary hover:underline"
+          >
             Forgot password?
           </Link>
         </div>

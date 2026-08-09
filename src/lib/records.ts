@@ -19,8 +19,7 @@ export const RECORD_TYPES: {
   {
     value: "meeting_minutes",
     label: "Meeting Minutes",
-    description:
-      "For documenting an actual meeting, participants, discussion and decisions.",
+    description: "For documenting an actual meeting, participants, discussion and decisions.",
   },
   {
     value: "sole_member_written_consent",
@@ -36,8 +35,7 @@ export const RECORD_TYPES: {
   {
     value: "manager_resolution",
     label: "Manager Resolution",
-    description:
-      "For decisions made by an authorized manager in a manager-managed LLC.",
+    description: "For decisions made by an authorized manager in a manager-managed LLC.",
   },
   {
     value: "business_decision_record",
@@ -128,7 +126,10 @@ export type GenerationOutput = {
 
 const RISK_RULES: { key: keyof ContextAnswers; label: string }[] = [
   { key: "changesOwnership", label: "Changes ownership percentages or membership interests" },
-  { key: "involvesAnotherMember", label: "Involves adding, removing or transacting with another member" },
+  {
+    key: "involvesAnotherMember",
+    label: "Involves adding, removing or transacting with another member",
+  },
   { key: "amendsOperatingAgreement", label: "Amends the operating agreement" },
   { key: "involvesBorrowing", label: "Involves borrowing or pledging company assets" },
   { key: "largeDistribution", label: "Involves a large owner distribution" },
@@ -159,7 +160,11 @@ export function recommendRecordType(input: GenerationInput): {
     };
   }
 
-  if (isLLC && managerManaged && (answers.decidedBy === "manager" || business.user_role === "manager")) {
+  if (
+    isLLC &&
+    managerManaged &&
+    (answers.decidedBy === "manager" || business.user_role === "manager")
+  ) {
     return {
       recordType: "manager_resolution",
       reason:
@@ -243,7 +248,9 @@ export function buildDraft(input: GenerationInput): GenerationOutput {
   if (!input.participants) missingInformation.push("Names of the people who participated.");
   if (!input.approvers) missingInformation.push("Names of the people who approved the decision.");
   if (input.meetingOccurred === "unsure")
-    missingInformation.push("Whether an actual meeting took place — this changes the appropriate record type.");
+    missingInformation.push(
+      "Whether an actual meeting took place — this changes the appropriate record type.",
+    );
   if (recordType === "meeting_minutes") {
     missingInformation.push("Meeting location or format (in person, video, phone).");
     missingInformation.push("Attendance or quorum details — these were not invented for you.");
@@ -258,7 +265,8 @@ export function buildDraft(input: GenerationInput): GenerationOutput {
   const approverList = input.approvers?.trim() || "[Add the names of the approving parties]";
   const authorized = input.approvers?.trim() || "[Add the authorized person]";
 
-  const header = (title: string) => `${title.toUpperCase()}\nOF\n${business.legal_name.toUpperCase()}`;
+  const header = (title: string) =>
+    `${title.toUpperCase()}\nOF\n${business.legal_name.toUpperCase()}`;
 
   let title = "";
   let sections: DocumentSection[] = [];
@@ -281,7 +289,11 @@ export function buildDraft(input: GenerationInput): GenerationOutput {
           heading: "Attendance statement",
           body: "[Confirm whether the attendance requirements in your operating agreement were satisfied. This statement was not generated for you because attendance and quorum are facts only you can confirm.]",
         },
-        { id: "agenda", heading: "Agenda", body: `Discussion and approval of the matter described below.` },
+        {
+          id: "agenda",
+          heading: "Agenda",
+          body: `Discussion and approval of the matter described below.`,
+        },
         { id: "discussion", heading: "Discussion summary", body: background },
         {
           id: "decisions",
@@ -293,7 +305,11 @@ export function buildDraft(input: GenerationInput): GenerationOutput {
           heading: "Resolutions",
           body: `RESOLVED, that the company approves the matter described above, and that ${authorized} is authorized to take the actions reasonably necessary to carry it out.`,
         },
-        { id: "adjournment", heading: "Adjournment", body: "There being no further business, the meeting was adjourned." },
+        {
+          id: "adjournment",
+          heading: "Adjournment",
+          body: "There being no further business, the meeting was adjourned.",
+        },
         {
           id: "signature",
           heading: "Approval",
@@ -322,7 +338,11 @@ export function buildDraft(input: GenerationInput): GenerationOutput {
           heading: "Authorization",
           body: `${authorized} is authorized to take the actions reasonably necessary to carry out this decision, including signing documents on behalf of the company.`,
         },
-        { id: "effective", heading: "Effective date", body: `This consent is effective as of ${effectiveDate || "[date]"}.` },
+        {
+          id: "effective",
+          heading: "Effective date",
+          body: `This consent is effective as of ${effectiveDate || "[date]"}.`,
+        },
         { id: "signature", heading: "Sole member", body: `Name:\nSignature:\nDate:` },
       ];
       break;
@@ -347,7 +367,11 @@ export function buildDraft(input: GenerationInput): GenerationOutput {
           heading: "Authorization",
           body: `${authorized} is authorized to take the actions reasonably necessary to carry out this decision.`,
         },
-        { id: "effective", heading: "Effective date", body: `This consent is effective as of ${effectiveDate || "[date]"}.` },
+        {
+          id: "effective",
+          heading: "Effective date",
+          body: `This consent is effective as of ${effectiveDate || "[date]"}.`,
+        },
         {
           id: "signature",
           heading: "Members",
@@ -376,7 +400,11 @@ export function buildDraft(input: GenerationInput): GenerationOutput {
           heading: "Authority granted",
           body: `${authorized} is authorized to take the actions reasonably necessary to carry out this decision.`,
         },
-        { id: "effective", heading: "Effective date", body: `This resolution is effective as of ${effectiveDate || "[date]"}.` },
+        {
+          id: "effective",
+          heading: "Effective date",
+          body: `This resolution is effective as of ${effectiveDate || "[date]"}.`,
+        },
         { id: "signature", heading: "Manager", body: `Name:\nSignature:\nDate:` },
       ];
       break;
@@ -401,7 +429,11 @@ export function buildDraft(input: GenerationInput): GenerationOutput {
           heading: "Follow-up authority",
           body: `${authorized} will carry out the actions needed to implement this decision.`,
         },
-        { id: "effective", heading: "Effective date", body: `This decision is effective as of ${effectiveDate || "[date]"}.` },
+        {
+          id: "effective",
+          heading: "Effective date",
+          body: `This decision is effective as of ${effectiveDate || "[date]"}.`,
+        },
         { id: "signature", heading: "Prepared by", body: `Name:\nSignature:\nDate:` },
       ];
   }

@@ -11,8 +11,9 @@ Do not ask me follow-up questions. Make sensible product and design decisions wh
 Use [PRODUCT NAME] as the temporary product name throughout the application so it can easily be replaced later.
 
 ==================================================
+
 1. PRODUCT VISION
-==================================================
+   \==================================================
 
 [PRODUCT NAME] helps busy freelancers, consultants, creative professionals and owner-operated small businesses organize their compliance responsibilities and business records without needing to interpret complicated government websites.
 
@@ -79,8 +80,7 @@ Long-term modules should be visible inside the product as clearly labelled previ
 - Expanded Evidence Vault
 - Accountant and lawyer collaboration
 
-==================================================
-2. LEGAL AND TRUST CONSTRAINTS
+================================================== 2. LEGAL AND TRUST CONSTRAINTS
 ==================================================
 
 The product is a compliance-organization and document-preparation tool.
@@ -146,8 +146,7 @@ Never use fake:
 
 Use “Built for Colorado freelancers and owner-operated businesses,” not “Used by thousands of Colorado businesses.”
 
-==================================================
-3. CONVERSION STRATEGY
+================================================== 3. CONVERSION STRATEGY
 ==================================================
 
 The public website should be highly conversion-focused but ethical.
@@ -208,8 +207,7 @@ Do not imply that unfinished functionality is already operational.
 
 The user should be able to reach the generator quickly after signup.
 
-==================================================
-4. TECHNICAL STACK
+================================================== 4. TECHNICAL STACK
 ==================================================
 
 Use the standard Lovable stack:
@@ -233,19 +231,18 @@ If Supabase is not configured, use a clearly isolated mock-data service with loc
 
 Use proper routing and protected authenticated routes.
 
-==================================================
-5. ROUTES
+================================================== 5. ROUTES
 ==================================================
 
 Public routes:
 
 /
- /login
- /signup
- /forgot-password
- /privacy
- /terms
- /disclaimer
+/login
+/signup
+/forgot-password
+/privacy
+/terms
+/disclaimer
 
 Authenticated routes:
 
@@ -269,8 +266,7 @@ After signup:
 3. Send the user directly to /app/records/new.
 4. Preserve the visitor’s original CTA intent.
 
-==================================================
-6. VISUAL DIRECTION
+================================================== 6. VISUAL DIRECTION
 ==================================================
 
 Create a modern, trustworthy B2B SaaS design.
@@ -331,13 +327,13 @@ Ensure:
 - Reduced-motion compatibility
 - Clear validation and error messages
 
-==================================================
-7. PUBLIC HOMEPAGE
+================================================== 7. PUBLIC HOMEPAGE
 ==================================================
 
 Build a complete marketing homepage using the following structure and copy.
 
---------------------------------------------------
+---
+
 7.1 STICKY HEADER
 --------------------------------------------------
 
@@ -362,7 +358,8 @@ The header should become slightly more compact after scrolling.
 
 On mobile, use an accessible navigation drawer.
 
---------------------------------------------------
+---
+
 7.2 HERO SECTION
 --------------------------------------------------
 
@@ -431,7 +428,8 @@ Include a visible action:
 
 Do not show a fake compliance score.
 
---------------------------------------------------
+---
+
 7.3 TRUST STRIP
 --------------------------------------------------
 
@@ -444,7 +442,8 @@ Below the hero, show four simple trust statements:
 
 Do not use fictional media logos or customer logos.
 
---------------------------------------------------
+---
+
 7.4 PROBLEM SECTION
 --------------------------------------------------
 
@@ -482,7 +481,8 @@ Title:
 Copy:
 “Answer straightforward questions and receive an organized draft that you can review, edit, sign and store.”
 
---------------------------------------------------
+---
+
 7.5 INTERACTIVE BEFORE-AND-AFTER DEMONSTRATION
 --------------------------------------------------
 
@@ -525,7 +525,8 @@ CTA beneath the demonstration:
 
 “Create a record from my notes”
 
---------------------------------------------------
+---
+
 7.6 HOW IT WORKS
 --------------------------------------------------
 
@@ -559,7 +560,8 @@ Copy:
 
 Use a visual connecting line on desktop and stacked steps on mobile.
 
---------------------------------------------------
+---
+
 7.7 RECORD-TYPE INTELLIGENCE
 --------------------------------------------------
 
@@ -602,7 +604,8 @@ Include:
 
 “[PRODUCT NAME] recommends a starting format based on the information you provide. You remain responsible for reviewing the result.”
 
---------------------------------------------------
+---
+
 7.8 PRODUCT CAPABILITIES
 --------------------------------------------------
 
@@ -656,7 +659,8 @@ Description:
 Badge:
 “Coming soon”
 
---------------------------------------------------
+---
+
 7.9 LONG-TERM PLATFORM PREVIEW
 --------------------------------------------------
 
@@ -689,7 +693,8 @@ The modal CTA may say:
 
 “Notify me when available”
 
---------------------------------------------------
+---
+
 7.10 TRUST AND TRANSPARENCY
 --------------------------------------------------
 
@@ -719,7 +724,8 @@ Display a restrained disclaimer panel:
 
 “[PRODUCT NAME] provides business-record organization and document-preparation tools. It is not a law firm and does not provide legal representation. Generated documents should be reviewed for accuracy and consistency with your governing documents and professional advice.”
 
---------------------------------------------------
+---
+
 7.11 TARGET AUDIENCE
 --------------------------------------------------
 
@@ -740,7 +746,8 @@ Supporting copy:
 
 “Start with one business record and build a more organized company history over time.”
 
---------------------------------------------------
+---
+
 7.12 FAQ
 --------------------------------------------------
 
@@ -794,7 +801,8 @@ Answer:
 
 “Your records are stored in your authenticated workspace. The product should clearly explain its security and data-handling practices in the Privacy and Security pages.”
 
---------------------------------------------------
+---
+
 7.13 FINAL CTA
 --------------------------------------------------
 
@@ -814,7 +822,8 @@ Microcopy:
 
 “Free during beta. No credit card required.”
 
---------------------------------------------------
+---
+
 7.14 FOOTER
 --------------------------------------------------
 
@@ -847,8 +856,7 @@ Footer notice:
 
 “Initial coverage is limited to selected business-record scenarios. Unsupported or higher-risk matters may require professional review.”
 
-==================================================
-8. AUTHENTICATION
+================================================== 8. AUTHENTICATION
 ==================================================
 
 Create polished signup, login and forgot-password pages.
@@ -888,8 +896,7 @@ Use secure authentication practices.
 
 Do not store raw passwords.
 
-==================================================
-9. MINIMAL BUSINESS ONBOARDING
+================================================== 9. MINIMAL BUSINESS ONBOARDING
 ==================================================
 
 Create a short, multi-step onboarding flow.
@@ -957,8 +964,7 @@ Allow the user to edit all information later.
 
 Store onboarding completion state.
 
-==================================================
-10. AUTHENTICATED APPLICATION SHELL
+================================================== 10. AUTHENTICATED APPLICATION SHELL
 ==================================================
 
 Create a desktop sidebar and responsive mobile navigation.
@@ -999,8 +1005,7 @@ Avatar menu:
 - Settings
 - Log out
 
-==================================================
-11. DASHBOARD
+================================================== 11. DASHBOARD
 ==================================================
 
 Dashboard greeting:
@@ -1071,8 +1076,7 @@ Any demonstration content must be labelled:
 
 “Sample data”
 
-==================================================
-12. AI BUSINESS RECORD GENERATOR
+================================================== 12. AI BUSINESS RECORD GENERATOR
 ==================================================
 
 Create a polished multi-step generator.
@@ -1087,7 +1091,8 @@ Steps:
 4. Draft
 5. Save
 
---------------------------------------------------
+---
+
 12.1 STEP 1: DESCRIBE
 --------------------------------------------------
 
@@ -1138,7 +1143,8 @@ Validation:
 - Require decision date
 - Display helpful validation rather than generic errors
 
---------------------------------------------------
+---
+
 12.2 STEP 2: BUSINESS CONTEXT
 --------------------------------------------------
 
@@ -1179,7 +1185,8 @@ If a high-risk matter is detected, show:
 
 Do not prevent the user from continuing, but explain why review may be appropriate.
 
---------------------------------------------------
+---
+
 12.3 STEP 3: RECORD RECOMMENDATION
 --------------------------------------------------
 
@@ -1258,7 +1265,8 @@ Primary CTA:
 
 “Generate draft”
 
---------------------------------------------------
+---
+
 12.4 STEP 4: DRAFT EDITOR
 --------------------------------------------------
 
@@ -1321,7 +1329,8 @@ Do not claim to generate an official EIN letter or government-issued document.
 
 Do not use “ready to file” for internal records.
 
---------------------------------------------------
+---
+
 12.5 SAMPLE DRAFT STRUCTURE
 --------------------------------------------------
 
@@ -1384,7 +1393,8 @@ Never invent:
 
 Missing facts must be flagged.
 
---------------------------------------------------
+---
+
 12.6 STEP 5: SAVE
 --------------------------------------------------
 
@@ -1412,8 +1422,7 @@ Actions:
 - Create another record
 - Return to dashboard
 
-==================================================
-13. BUSINESS RECORDS LIBRARY
+================================================== 13. BUSINESS RECORDS LIBRARY
 ==================================================
 
 Create a searchable records library.
@@ -1477,8 +1486,7 @@ CTA:
 
 “Create business record”
 
-==================================================
-14. DOCUMENTS AREA
+================================================== 14. DOCUMENTS AREA
 ==================================================
 
 Create a basic Documents area for:
@@ -1511,8 +1519,7 @@ Show:
 - Linked record
 - Uploaded by
 
-==================================================
-15. COMING-SOON COMPLIANCE MAP
+================================================== 15. COMING-SOON COMPLIANCE MAP
 ==================================================
 
 Create a polished but disabled preview page.
@@ -1551,8 +1558,7 @@ Add:
 
 Do not present sample results as actual determinations for the logged-in business.
 
-==================================================
-16. COMING-SOON CALENDAR
+================================================== 16. COMING-SOON CALENDAR
 ==================================================
 
 Create a polished preview page.
@@ -1585,8 +1591,7 @@ Prominent label:
 
 “Coming soon”
 
-==================================================
-17. BUSINESS PROFILE
+================================================== 17. BUSINESS PROFILE
 ==================================================
 
 Allow users to edit:
@@ -1610,8 +1615,7 @@ Show:
 
 “Changes to your business structure may affect future compliance recommendations.”
 
-==================================================
-18. SETTINGS
+================================================== 18. SETTINGS
 ==================================================
 
 Create settings sections:
@@ -1638,8 +1642,7 @@ Security section:
 
 Account deletion must require confirmation.
 
-==================================================
-19. DATA MODEL
+================================================== 19. DATA MODEL
 ==================================================
 
 Create the following logical data models.
@@ -1725,8 +1728,7 @@ NotificationPreference
 - roadmap_updates
 - security_alerts
 
-==================================================
-20. AI GENERATION LOGIC
+================================================== 20. AI GENERATION LOGIC
 ==================================================
 
 Create a clean AI service abstraction.
@@ -1770,8 +1772,7 @@ The generation service must:
 
 Use a deterministic mock generator if an AI backend is not configured.
 
-==================================================
-21. PDF EXPORT
+================================================== 21. PDF EXPORT
 ==================================================
 
 Implement PDF export where technically practical.
@@ -1789,8 +1790,7 @@ PDF output should:
 
 Do not include application navigation or dashboard UI in the PDF.
 
-==================================================
-22. ANALYTICS EVENTS
+================================================== 22. ANALYTICS EVENTS
 ==================================================
 
 Create event hooks for:
@@ -1817,8 +1817,7 @@ Create event hooks for:
 
 Do not send sensitive document content to analytics.
 
-==================================================
-23. APPLICATION STATES
+================================================== 23. APPLICATION STATES
 ==================================================
 
 Design:
@@ -1846,8 +1845,7 @@ CTA:
 
 “Create your first record”
 
-==================================================
-24. SECURITY AND PRIVACY
+================================================== 24. SECURITY AND PRIVACY
 ==================================================
 
 Treat business records as sensitive information.
@@ -1870,8 +1868,7 @@ Add a Security page describing the product’s security approach without making 
 
 Do not claim SOC 2, ISO 27001, HIPAA compliance or encryption certifications unless they are actually implemented and verified.
 
-==================================================
-25. ACCEPTANCE CRITERIA
+================================================== 25. ACCEPTANCE CRITERIA
 ==================================================
 
 The MVP is complete when:
@@ -1879,7 +1876,7 @@ The MVP is complete when:
 1. A visitor can understand the product from the homepage.
 
 2. The homepage has one dominant CTA:
-“Create your first business record.”
+   “Create your first business record.”
 
 3. A new user can sign up and log in.
 
@@ -1898,7 +1895,7 @@ The MVP is complete when:
 10. The user can generate and edit a structured draft.
 
 11. Every generated document is labelled:
-“Draft for review.”
+    “Draft for review.”
 
 12. The user can save the draft.
 
@@ -1928,8 +1925,7 @@ The MVP is complete when:
 
 25. The code is modular and prepared for future expansion.
 
-==================================================
-26. FINAL BUILD PRIORITY
+================================================== 26. FINAL BUILD PRIORITY
 ==================================================
 
 Prioritize implementation in this order:

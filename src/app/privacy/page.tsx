@@ -23,8 +23,8 @@ export default function Page() {
       </p>
       <h2>Information we collect</h2>
       <p>
-        We collect the account details you provide (name and email), the business-profile details you
-        enter, the descriptions and answers you submit to the record generator, the records you
+        We collect the account details you provide (name and email), the business-profile details
+        you enter, the descriptions and answers you submit to the record generator, the records you
         generate or edit, and any files you upload.
       </p>
       <h2>How your information is used</h2>
@@ -35,8 +35,8 @@ export default function Page() {
       <h2>Access and storage</h2>
       <p>
         Records and uploaded files are stored in your authenticated workspace. Database access rules
-        scope every query to your own account, and uploaded files are stored privately with no public
-        URLs.
+        scope every query to your own account, and uploaded files are stored privately with no
+        public URLs.
       </p>
       <h2>Retention and deletion</h2>
       <p>
@@ -45,8 +45,8 @@ export default function Page() {
       </p>
       <h2>Compliance claims</h2>
       <p>
-        We do not claim SOC 2, ISO 27001 or HIPAA compliance, and we make no certification claims. We
-        describe only the controls that are actually implemented in the product.
+        We do not claim SOC 2, ISO 27001 or HIPAA compliance, and we make no certification claims.
+        We describe only the controls that are actually implemented in the product.
       </p>
       <h2>Contact</h2>
       <p>For privacy questions or security reports, contact hello@example.com.</p>

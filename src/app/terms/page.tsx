@@ -45,8 +45,8 @@ export default function Page() {
       </p>
       <h2>Limitation of liability</h2>
       <p>
-        The product is provided as-is. We do not guarantee that a generated document is legally valid
-        or legally sufficient, and we do not guarantee compliance with any legal obligation.
+        The product is provided as-is. We do not guarantee that a generated document is legally
+        valid or legally sufficient, and we do not guarantee compliance with any legal obligation.
       </p>
     </LegalPage>
   );
