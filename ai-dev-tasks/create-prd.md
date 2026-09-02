@@ -54,10 +54,20 @@ Ask only the most critical questions needed to write a clear PRD. Focus on areas
 
 The generated PRD should include the following sections:
 
-1.  **Introduction/Overview:** Briefly describe the feature and the problem it solves. State the goal.
+1.  **Introduction/Overview:** Briefly describe the feature and the problem it solves. State the goal. Include two explicit labeled sub-points:
+    *   **Problem Statement:** The specific pain the user experiences today, in their terms (what they waste time/money on, risk, or can't do).
+    *   **Solution:** How this feature addresses that problem, in one or two sentences.
 2.  **Goals:** List the specific, measurable objectives for this feature.
-3.  **User Stories:** Detail the user narratives describing feature usage and benefits.
-4.  **Functional Requirements:** List the specific functionalities the feature must have. Use clear, concise language (e.g., "The system must allow users to upload a profile picture."). Number these requirements.
+3.  **User Stories:** Detail the user narratives describing feature usage and benefits. Write each story in the strict format **As a** [role], **I want to** [action], **so that** [benefit].
+4.  **Functional Requirements:** List the specific functionalities the feature must have. Group requirements into numbered subsections by category (e.g., `### 1. Category Name`), and within each subsection write each requirement as **The system SHALL** [do something specific and testable], numbered `**<section>.<item>**` (e.g., `**1.1**`). Use "SHALL NOT" for explicit prohibitions and "MAY" for optional behavior. For example:
+
+    ```markdown
+    ### 1. State & Entity Type Configuration
+
+    **1.1** The system SHALL allow users to set a default state and entity type in their user profile (one-time setup).
+
+    **1.2** The system SHALL allow users to override the default state/entity type on a per-document basis when creating new minutes.
+    ```
 5.  **Non-Goals (Out of Scope):** Clearly state what this feature will *not* include to manage scope.
 6.  **Design Considerations (Optional):** Link to mockups, describe UI/UX requirements, or mention relevant components/styles if applicable.
 7.  **Technical Considerations (Optional):** Mention any known technical constraints, dependencies, or suggestions (e.g., "Should integrate with the existing Auth module").
